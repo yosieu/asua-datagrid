@@ -4,27 +4,27 @@
  *}
 
 {var $activeOption = $status->getCurrentOption($row)}
-
 <div class="dropdown">
 	{if $activeOption}
-		{if $status->shouldBeRendered($row)}
-			<button class="dropdown-toggle {$activeOption->getClass()} {$activeOption->getClassSecondary()}" type="button" data-toggle="dropdown">
-				{if $activeOption->getIcon()}<i class="{$iconPrefix}{$activeOption->getIcon()}"></i> {/if}
+	{if $status->shouldBeRendered($row)}
+		<a class="dropdown-toggle {$activeOption->getClass()} {$activeOption->getClassSecondary()}" type="button"
+	   		id="drop_{$status->getKey()}_{$row->getId()}" data-bs-toggle="dropdown">
+			{if $activeOption->getIcon()}<i class="{$iconPrefix}{$activeOption->getIcon()}"></i> {/if}
 				{$activeOption->getText()|translate} <i n:if="$status->hasCaret()" class="caret"></i>
-			</button>
-		{else}
-			{$activeOption->getText()|translate}
-		{/if}
+		</a>
+	{else}
+		{$activeOption->getText()|translate}
+	{/if}
 	{else}
 		{$row->getValue($status->getColumn())}
 	{/if}
-	<ul class="dropdown-menu">
+	<ul class="dropdown-menu" aria-labelledby="drop_{$status->getKey()}_{$row->getId()}">
 		<li n:foreach="$status->getOptions() as $option">
 			{var $confirmationDialog = $option->getConfirmationDialog($row)}
 
 			<a
-				class="{$option->getClassInDropdown()}"
-				n:href="changeStatus!, id => $row->getId(), key => $status->getKey(), value => $option->getValue()"
+					class="{$option->getClassInDropdown()}"
+					n:href="changeStatus!, id => $row->getId(), key => $status->getKey(), value => $option->getValue()"
 				{if $confirmationDialog}
 					data-{Ublaboo\DataGrid\Column\Action::$dataConfirmAttributeName}={$confirmationDialog}
 				{/if}
