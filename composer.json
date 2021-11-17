@@ -1,7 +1,7 @@
 {
-	"name": "ublaboo/datagrid",
+	"name": "asua/datagrid",
 	"type": "library",
-	"description": "DataGrid for Nette Framework: filtering, sorting, pagination, tree view, table view, translator, etc",
+	"description": "DataGrid for Nette Framework: filtering, sorting, pagination, tree view, table view, translator, etc. Fork of ublaboo/datagrid",
 	"keywords": [
 		"datagrid",
 		"grid",
