@@ -66,6 +66,7 @@
 					</div>
 				{/block}
 			{/if}
+			<div class="table-responsive">
 			<table class="{block table-class}table table-hover table-striped table-bordered table-sm{/block}" n:snippet="table" n:block="data">
 				<thead n:block="header">
 					<tr class="row-group-actions" n:if="$hasGroupActions || $exports || $toolbarButtons || $control->canHideColumns() || $inlineAdd" n:block="group-actions">
@@ -405,6 +406,7 @@
 					</tfoot>
 				{/block}
 			</table>
+				</div>
 		{/form}
 	{/snippetArea}
 	</div>
