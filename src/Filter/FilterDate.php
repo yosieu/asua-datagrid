@@ -32,7 +32,8 @@ class FilterDate extends OneColumnFilter implements IFilterDate
 			->setAttribute('data-date-orientation', 'bottom')
 			->setAttribute('data-date-format', $this->getJsFormat())
 			->setAttribute('data-date-today-highlight', 'true')
-			->setAttribute('data-date-autoclose', 'true');
+			->setAttribute('data-date-autoclose', 'true')
+			->setAttribute('autocomplete', 'false');
 
 		$this->addAttributes($control);
 

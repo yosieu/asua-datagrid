@@ -52,7 +52,6 @@
 		"nette/tester": "^2.3.4",
 		"nextras/dbal": "^3.0.1 || ^4.0",
 		"nextras/orm": "^3.1.0 || ^4.0",
-		"ninjify/coding-standard": "^0.12.0",
 		"phpstan/phpstan-nette": "^0.12.14",
 		"tharos/leanmapper": "^3.4.2 || ^4.0.0",
 		"tracy/tracy": "^2.6.3"
@@ -60,7 +59,10 @@
 	"prefer-stable": true,
 	"minimum-stability": "dev",
 	"config": {
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	},
 	"extra": {
 		"branch-alias": {

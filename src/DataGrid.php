@@ -1350,6 +1350,8 @@ class DataGrid extends Control
 
 		$form->setTranslator($this->getTranslator());
 
+		$form->setHtmlAttribute('autocomplate', 'off');
+
 		/**
 		 * InlineEdit part
 		 */
