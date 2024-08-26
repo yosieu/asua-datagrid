@@ -1,0 +1,31 @@
+diff --git a/src/templates/datagrid.latte b/src/templates/datagrid.latte
+index a5dd37f..ee9f09b 100644
+--- a/src/templates/datagrid.latte
++++ b/src/templates/datagrid.latte
+@@ -245,7 +245,7 @@
+ 
+ 							{if !isset($toggle_detail)}
+ 								{if $inlineEdit && $inlineEdit->getItemId() == $row->getId()}
+-									{php $inlineEdit->onSetDefaults($filter['inline_edit'], $item); }
++									{=$inlineEdit->onSetDefaults($filter['inline_edit'], $item)}
+ 
+ 									<tr data-id="{$row->getId()}" n:snippet="item-{$row->getId()}" n:attr="$row->getControl()->attrs">
+ 										<td n:if="$hasGroupActions" class="col-checkbox"></td>
+@@ -285,7 +285,7 @@
+ 											{/if}
+ 										</td>
+ 										{foreach $columns as $key => $column}
+-											{php $column = $row->applyColumnCallback($key, clone $column)}
++											{var $column = $row->applyColumnCallback($key, clone $column)}
+ 
+ 											{var $td = $column->getElementForRender('td', $key, $row)}
+ 											{$td->startTag()|noescape}
+@@ -415,7 +415,7 @@
+ 
+ {define inlineAddRow}
+ 	{if $inlineAdd->shouldBeRendered()}
+-		{php $inlineAdd->onSetDefaults($filter['inline_add']); }
++		{=$inlineAdd->onSetDefaults($filter['inline_add'])}
+ 
+ 		<tr class="datagrid-row-inline-add datagrid-row-inline-add-hidden">
+ 			<td n:if="$hasGroupActions" class="col-checkbox"></td>
